@@ -1,6 +1,7 @@
 filetype plugin indent on
 syntax on
 
+set smartindent 
 set nomodeline
 set nocompatible
 set noshowmode
@@ -9,15 +10,14 @@ set number
 set rnu 
 set ruler
 set rulerformat=%40(%=%1*%m%r%w\ %t%)
+set tags=./tags,tags;$HOME
 
 set numberwidth=2
 
 " Pathogen and vundle
 execute pathogen#infect()
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -28,9 +28,17 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'universal-ctags/ctags'
 Plugin 'xolox/vim-misc'
-Plugin 'craigemery/vim-autotag'
-
+Plugin 'majutsushi/tagbar'
+Plugin 'xolox/vim-easytags'
+        let b:easytags_auto_highlight = 0
+        let g:easytags_async = 1
+        let g:easytags_cmd = '/usr/local/bin/ctags'
 call vundle#end() 
+
+" Tag configs
+let g:autotagTagsFile=".tags"
+nmap <F8> :TagbarToggle<CR>
+noremap <c-]> 2<c-]>
 
 " Lightline settings 
 let g:lightline = {
