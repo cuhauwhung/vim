@@ -1,7 +1,16 @@
-set nocompatible
 filetype plugin indent on
 syntax on
+
+set nomodeline
+set nocompatible
 set noshowmode
+set tags=tags
+set number
+set rnu 
+set ruler
+set rulerformat=%40(%=%1*%m%r%w\ %t%)
+
+set numberwidth=2
 
 " Pathogen and vundle
 execute pathogen#infect()
@@ -16,10 +25,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'universal-ctags/ctags'
+Plugin 'xolox/vim-misc'
+Plugin 'craigemery/vim-autotag'
 
 call vundle#end() 
 
-" Lightline comments
+" Lightline settings 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -53,4 +66,3 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
-
