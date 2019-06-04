@@ -14,10 +14,12 @@ set laststatus=2
 set numberwidth=2
 set nobackup
 set noswapfile 
+set hlsearch
+nnoremap i :noh<cr>i
 
 " Far.vim settings 
-"set lazyredraw
-" set regexpengine=1
+set lazyredraw
+set regexpengine=1
 
 " Pathogen and vundle
 execute pathogen#infect()
@@ -38,7 +40,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'itchyny/vim-gitbranch'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kevinw/pyflakes-vim' 
-
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end() 
 
 " Tag configs
@@ -112,4 +114,14 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 
+" Commenting
+" " Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+map <Leader><Leader> <Leader>c<space>
